@@ -1,7 +1,11 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
 import NotFound from './NotFound';
 import Home from './Home';
+
+import { store } from '../app/store';
 
 function App() {
   return (
@@ -14,7 +18,9 @@ function App() {
 function WrappedApp() {
   return (
     <HashRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </HashRouter>
   );
 }
